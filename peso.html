@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="peso.css">
+    <title>Control de peso</title>
+</head>
+<body>
+    <script>
+        function guardarPeso(){
+
+                let peso = document.getElementById("peso").value;
+                    if(peso){
+                          let listaPesos = document.getElementById("listaPesos");
+                          let nuevoPeso = document.createElement("li");   
+                          let fechaActual = new Date().toLocaleDateString();
+                                nuevoPeso.textContent = fechaActual + " - " + peso + " kg";
+                               listaPesos.appendChild(nuevoPeso);
+                         document.getElementById("peso").value = "";
+                         } else {
+                            alert("Por favor, ingrese un peso válido.");
+    }
+}
+    </script>
+    
+    <div class="container">
+        <h1>Control de Peso</h1>
+
+    <label for="peso">Ingrese su peso (kg):</label>
+    <input type="number" id="peso" placeholder="Ej: 85">
+
+    <button onclick="guardarPeso()"> Registrar Peso </button>
+
+    <h2>Historial de Peso</h2>
+
+    <ul id="listaPesos"></ul>
+
+    </div>
+    <div class="imagen">
+        <img src="./images.jpg" alt="Imagen de control de peso" class="img-fluid">
+</body>
+</html>
